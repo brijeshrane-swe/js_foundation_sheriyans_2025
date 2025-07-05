@@ -39,8 +39,21 @@ function datatypeSymbol(input) {
     console.log("Obj1:", obj1);
 }
 
+function datatypeBigint(input) {
+    // Process input here
+    console.log("Processing input:", input);
+    const maxSafeInteger = Number.MAX_SAFE_INTEGER;
+    let bigIntValue = BigInt(input);
+    let maxNum = BigInt(Number.MAX_SAFE_INTEGER);
+
+    console.log(`Max Number: ${maxSafeInteger}`);
+    console.log(`${maxNum} + ${bigIntValue}`)
+    console.log(`Result: ${maxNum+bigIntValue}`);
+}
+
 // Read a single line input
 rl.question("Enter input: ", (answer) => {
-    datatypeSymbol(answer);
+    // datatypeSymbol(answer);
+    datatypeBigint(answer);
     rl.close();
 });
