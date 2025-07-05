@@ -1,25 +1,19 @@
-const counter = {
-  count: 0,
-};
+import readline from "readline";
 
-function checkSanity() {
-  if (counter.count <= 0) {
-    counter.count = 0;
-  }
+// Create an interface to read from stdin and write to stdout
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
 
-  if (counter.count >= 20) {
-    counter.count = 20;
-  }
-}
+// Prompt the user for input
+rl.question("Enter a number: ", function(input) {
+    if (input >= 18) {
+        console.log("You are an adult.");
+    } else {
+        console.log("You are a minor.");
+    }
 
-function increment() {
-  counter.count += 1;
-  checkSanity();
-  console.log(`Count: ${counter.count}`);
-}
-
-function decrement() {
-  counter.count -= 1;
-  checkSanity();
-  console.log(`Count: ${counter.count}`);
-}
+    // Always close the interface when done
+    rl.close();
+});
